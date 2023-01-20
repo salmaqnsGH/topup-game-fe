@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import cx from "classnames";
@@ -19,9 +20,9 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
 		<div className={`${classItem}`}>
 			<Image src={`/icon/${icon}.svg`} className="icon me-3" width={25} height={25} alt={"logo"} />
 			<p className="item-title m-0">
-				<a href={`${href}`} className="text-lg text-decoration-none">
+				<Link href={`${href}`} className="text-lg text-decoration-none">
 					{title}
-				</a>
+				</Link>
 			</p>
 		</div>
 	);
