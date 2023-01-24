@@ -1,30 +1,22 @@
 import React, { useCallback, useEffect, useState } from "react";
 import GameItem from "@/components/molecules/GameItems";
 import { getFeaturedGame } from "@/services/player";
+import { GameItemTypes } from "@/services/data-types";
 
-// interface GameList {
-// 	_id: string;
-// 	name: string;
-// 	thumbnail: string;
-// 	category: Category;
-// }
-
-// interface Category {
-// 	name: string;
-// }
+const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
 
 export default function FeaturedGame() {
-	const [gameList, setData] = useState([]);
-	// const [gameList, setData] = useState<GameList[]>([]);
+	const [gameList, setGameList] = useState([]);
 
 	const getFeatureGameList = useCallback(async () => {
 		const data = await getFeaturedGame();
-		setData(data);
+		setGameList(data);
 	}, [getFeaturedGame]);
 
 	useEffect(() => {
 		getFeatureGameList();
 	}, []);
+
 	return (
 		<section className="featured-game pt-50 pb-50">
 			<div className="container-fluid">
@@ -35,13 +27,13 @@ export default function FeaturedGame() {
 				<div
 					className="d-flex flex-row flex-lg-wrap overflow-setting justify-content-lg-between gap-lg-3 gap-4"
 					data-aos="fade-up">
-					{gameList.map((item, idx) => (
+					{gameList.map((item: GameItemTypes) => (
 						<>
 							<GameItem
-								key={idx}
+								key={item._id}
 								title={item.name}
 								category={item.category.name}
-								thumbnail={`http://188.166.221.212:10001/uploads/${item.thumbnail}`}
+								thumbnail={`${IMAGE_API}/${item.thumbnail}`}
 							/>
 						</>
 					))}
