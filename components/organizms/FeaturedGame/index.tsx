@@ -31,6 +31,7 @@ export default function FeaturedGame() {
 						<>
 							<GameItem
 								key={item._id}
+								id={item._id}
 								title={item.name}
 								category={item.category.name}
 								thumbnail={`${IMAGE_API}/${item.thumbnail}`}
