@@ -2,14 +2,28 @@ import Footer from "@/components/organizms/Footer";
 import Navbar from "@/components/organizms/Navbar";
 import TopUpForm from "@/components/organizms/TopUpForm";
 import TopUpItem from "@/components/organizms/TopUpItem";
+import { getDetailVoucher } from "@/services/player";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 export default function Detail() {
 	const { query, isReady } = useRouter();
+	const [dataItem, setDataItem] = useState({
+		name: "",
+		thumbnail: "",
+		category: {
+			name: "",
+		},
+	});
+
+	const getVoucherDeetailAPI = useCallback(async (id: any) => {
+		const data = await getDetailVoucher(id);
+		setDataItem(data.detail);
+	}, []);
 
 	useEffect(() => {
 		if (isReady) {
+			getVoucherDeetailAPI(query.id);
 			console.log("router tersedia", query.id);
 		} else {
 			console.log("router tdk tersedia", query.id);
@@ -27,10 +41,10 @@ export default function Detail() {
 					</div>
 					<div className="row">
 						<div className="col-xl-3 col-lg-4 col-md-5 pb-30 pb-md-0 pe-md-25 text-md-start">
-							<TopUpItem type="mobile" />
+							<TopUpItem data={dataItem} type="mobile" />
 						</div>
 						<div className="col-xl-9 col-lg-8 col-md-7 ps-md-25">
-							<TopUpItem type="desktop" />
+							<TopUpItem data={dataItem} type="desktop" />
 							<hr />
 							<TopUpForm />
 						</div>
