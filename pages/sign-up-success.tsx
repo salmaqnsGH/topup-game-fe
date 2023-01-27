@@ -174,9 +174,7 @@ export default function SignUpSuccess() {
 					</svg>
 				</div>
 				<div className="pt-70 pb-md-50 pb-150">
-					<h2 className="text-4xl fw-bold text-center color-palette-1 mb-10">
-						Well Done!
-					</h2>
+					<h2 className="text-4xl fw-bold text-center color-palette-1 mb-10">Well Done!</h2>
 					<p className="text-lg text-center color-palette-1 m-0">
 						Kamu sudah bisa melakukan top up
 						<br className="d-sm-block d-none" />
@@ -184,10 +182,7 @@ export default function SignUpSuccess() {
 					</p>
 				</div>
 				<div className="button-group d-flex flex-column mx-auto">
-					<a
-						className="btn btn-top-up fw-medium text-lg text-white rounded-pill"
-						href="../index.html"
-						role="button">
+					<a className="btn btn-top-up fw-medium text-lg text-white rounded-pill" href="/sign-in" role="button">
 						Top Up
 					</a>
 				</div>

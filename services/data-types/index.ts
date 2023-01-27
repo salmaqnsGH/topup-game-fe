@@ -32,3 +32,8 @@ export interface PaymentTypes {
 	status: string;
 	banks: [BankTypes];
 }
+
+export interface LoginTypes {
+	email: string;
+	password: string;
+}
