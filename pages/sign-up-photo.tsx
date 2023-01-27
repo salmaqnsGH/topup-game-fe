@@ -2,13 +2,17 @@ import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { getGameCategory } from "@/services/player";
 import { setSignUp } from "@/services/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 export default function SignUpPhoto() {
 	const [categories, setCategories] = useState([]);
 	const [favorite, setFavorite] = useState("");
-	const [image, setImage] = useState("");
-	const [imagePreview, setImagePreview] = useState("/icon/uploadProfile.svg");
+	const [image, setImage] = useState(null);
+	const [imagePreview, setImagePreview] = useState(null);
 	const [localForm, setLocalForm] = useState({ name: "", email: "" });
+	const router = useRouter();
 
 	const getGameCategoryAPI = useCallback(async () => {
 		const data = await getGameCategory();
@@ -39,7 +43,13 @@ export default function SignUpPhoto() {
 		data.append("favorite", favorite);
 
 		const result = await setSignUp(data);
-		console.log(result);
+		if (result.error === 1) {
+			toast.error(result.message);
+		} else {
+			toast.success(result.message);
+			router.push("/sign-up-success");
+			localStorage.removeItem("user-form");
+		}
 	};
 
 	return (
@@ -51,7 +61,11 @@ export default function SignUpPhoto() {
 							<div className="mb-20">
 								<div className="image-upload text-center">
 									<label htmlFor="avatar">
-										<Image src={imagePreview} className="img-upload" width={120} height={120} alt={"logo"} />
+										{imagePreview ? (
+											<img src={imagePreview} className="img-upload" width={120} height={120} alt={"logo"} />
+										) : (
+											<img src="/icon/uploadProfile.svg" width={120} height={120} alt={"logo"} />
+										)}
 									</label>
 									<input
 										id="avatar"
@@ -104,6 +118,7 @@ export default function SignUpPhoto() {
 					</div>
 				</form>
 			</div>
+			<ToastContainer />
 		</section>
 	);
 }

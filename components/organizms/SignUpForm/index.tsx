@@ -15,9 +15,6 @@ export default function SignUpForm() {
 	};
 
 	const onSubmit = () => {
-		console.log("email", email);
-		console.log("name", name);
-		console.log("password", password);
 		const userForm = {
 			email,
 			name,
