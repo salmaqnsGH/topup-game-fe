@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
 import { getGameCategory } from "@/services/player";
 import { setSignUp } from "@/services/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import { Category } from "@/services/data-types";
 
 export default function SignUpPhoto() {
 	const [categories, setCategories] = useState([]);
 	const [favorite, setFavorite] = useState("");
-	const [image, setImage] = useState(null);
+	const [image, setImage] = useState("");
 	const [imagePreview, setImagePreview] = useState(null);
 	const [localForm, setLocalForm] = useState({ name: "", email: "" });
 	const router = useRouter();
@@ -26,12 +26,12 @@ export default function SignUpPhoto() {
 
 	useEffect(() => {
 		const getLocalForm = localStorage.getItem("user-form");
-		setLocalForm(JSON.parse(getLocalForm));
+		setLocalForm(JSON.parse(getLocalForm!));
 	}, []);
 
 	const onSubmit = async () => {
 		const getLocalForm = await localStorage.getItem("user-form");
-		const form = JSON.parse(getLocalForm);
+		const form = JSON.parse(getLocalForm!);
 		const data = new FormData();
 
 		data.append("image", image);
@@ -43,7 +43,7 @@ export default function SignUpPhoto() {
 		data.append("favorite", favorite);
 
 		const result = await setSignUp(data);
-		if (result.error === 1) {
+		if (result.error) {
 			toast.error(result.message);
 		} else {
 			toast.success(result.message);
@@ -93,7 +93,7 @@ export default function SignUpPhoto() {
 									aria-label="Favorite Game"
 									value={favorite}
 									onChange={(event) => setFavorite(event.target.value)}>
-									{categories.map((category) => {
+									{categories.map((category: Category) => {
 										return (
 											<option key={category._id} value={category._id}>
 												{category.name}
