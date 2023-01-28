@@ -1,12 +1,32 @@
+import Cookies from "js-cookie";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
 
-interface AuthProps {
-	isLogin?: boolean;
-}
+const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
 
-export default function Auth(props: Partial<AuthProps>) {
-	const { isLogin } = props;
+export default function Auth() {
+	const [isLogin, setIsLogin] = useState(false);
+	const [user, setUser] = useState({
+		id: "",
+		avatar: "",
+		email: "",
+		name: "",
+		username: "",
+	});
+
+	useEffect(() => {
+		const token = Cookies.get("token");
+
+		if (token) {
+			const jwtToken = atob(token!);
+			const payload = jwt_decode(jwtToken);
+			const user = payload.player;
+
+			setUser(user);
+			setIsLogin(true);
+		}
+	}, []);
 
 	if (!isLogin) {
 		return (
@@ -32,7 +52,7 @@ export default function Auth(props: Partial<AuthProps>) {
 						id="dropdownMenuLink"
 						data-bs-toggle="dropdown"
 						aria-expanded="false">
-						<img src="/img/avatar-1.png" className="rounded-circle" width="40" height="40" alt="" />
+						<img src={`${IMAGE_API}/${user.avatar}`} className="rounded-circle" width="40" height="40" alt="" />
 					</Link>
 
 					<ul className="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
