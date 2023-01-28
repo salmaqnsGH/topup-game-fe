@@ -18,6 +18,8 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect } from "react";
 import AOS from "aos";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	useEffect(() => {
@@ -47,6 +49,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 					crossOrigin="anonymous"></script>
 			</Head>
 			<Component {...pageProps} />
+			<ToastContainer />
 		</>
 	);
 }
