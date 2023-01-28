@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
+import { JWTPayloadTypes, UserTypes } from "@/services/data-types";
 
 const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
 
@@ -20,8 +21,8 @@ export default function Auth() {
 
 		if (token) {
 			const jwtToken = atob(token!);
-			const payload = jwt_decode(jwtToken);
-			const user = payload.player;
+			const payload: JWTPayloadTypes = jwt_decode(jwtToken);
+			const user: UserTypes = payload.player;
 
 			setUser(user);
 			setIsLogin(true);
