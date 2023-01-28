@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 import { JWTPayloadTypes, UserTypes } from "@/services/data-types";
+import { useRouter } from "next/router";
 
 const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
 
@@ -15,6 +16,7 @@ export default function Auth() {
 		name: "",
 		username: "",
 	});
+	const router = useRouter();
 
 	useEffect(() => {
 		const token = Cookies.get("token");
@@ -29,11 +31,17 @@ export default function Auth() {
 		}
 	}, []);
 
+	const onLogout = () => {
+		Cookies.remove("token");
+		setIsLogin(false);
+		router.push("/");
+	};
+
 	if (!isLogin) {
 		return (
 			<li className="nav-item my-auto">
 				<Link
-					href={"/log-in"}
+					href={"/sign-in"}
 					className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill"
 					role="button">
 					Sign In
@@ -72,10 +80,8 @@ export default function Auth() {
 								Account Settings
 							</Link>
 						</li>
-						<li>
-							<Link className="dropdown-item text-lg color-palette-2" href="/sign-in">
-								Log Out
-							</Link>
+						<li onClick={onLogout}>
+							<a className="dropdown-item text-lg color-palette-2">Log Out</a>
 						</li>
 					</ul>
 				</div>
