@@ -31,7 +31,7 @@ export default function PaymentItem(props: PaymentItemProps) {
 							d="M5.83301 10L8.46459 12.5L14.1663 7.5"
 							stroke="#00BAFF"
 							stroke-width="2"
-							stroke-linecap="round"
+							strokeLinecap="round"
 							stroke-linejoin="round"
 						/>
 					</svg>
