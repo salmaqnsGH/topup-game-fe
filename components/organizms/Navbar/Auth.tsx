@@ -10,11 +10,7 @@ const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
 export default function Auth() {
 	const [isLogin, setIsLogin] = useState(false);
 	const [user, setUser] = useState({
-		id: "",
 		avatar: "",
-		email: "",
-		name: "",
-		username: "",
 	});
 	const router = useRouter();
 
@@ -56,32 +52,32 @@ export default function Auth() {
 			<li className="nav-item my-auto dropdown d-flex">
 				<div className="vertical-line d-lg-block d-none"></div>
 				<div>
-					<Link
+					<a
 						className="dropdown-toggle ms-lg-40"
 						role="button"
 						id="dropdownMenuLink"
 						data-bs-toggle="dropdown"
 						aria-expanded="false"
-						href={""}>
+						href={"#"}>
 						{/* <img src={`${IMAGE_API}/${user.avatar}`} className="rounded-circle" width="40" height="40" alt="" /> */}
 						<img src={profilePhoto} className="rounded-circle" width="40" height="40" alt="" />
-					</Link>
+					</a>
 
 					<ul className="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
 						<li>
-							<Link className="dropdown-item text-lg color-palette-2" href="/member">
+							<a className="dropdown-item text-lg color-palette-2" href="/member">
 								My Profile
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link className="dropdown-item text-lg color-palette-2" href="#">
+							<a className="dropdown-item text-lg color-palette-2" href="#">
 								Wallet
-							</Link>
+							</a>
 						</li>
 						<li>
-							<Link className="dropdown-item text-lg color-palette-2" href="member/edit-profile">
+							<a className="dropdown-item text-lg color-palette-2" href="member/edit-profile">
 								Account Settings
-							</Link>
+							</a>
 						</li>
 						<li onClick={onLogout}>
 							<a className="dropdown-item text-lg color-palette-2">Log Out</a>
@@ -89,6 +85,10 @@ export default function Auth() {
 					</ul>
 				</div>
 			</li>
+			<script
+				src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+				integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+				crossOrigin="anonymous"></script>
 		</>
 	);
 }
