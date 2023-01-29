@@ -15,6 +15,7 @@ export default function SignUpPhoto() {
 
 	const getGameCategoryAPI = useCallback(async () => {
 		const data = await getGameCategory();
+		console.log(data);
 		setCategories(data);
 		setFavorite(data[0]._id);
 	}, [getGameCategory]);
