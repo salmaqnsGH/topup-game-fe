@@ -33,7 +33,7 @@ export default function FeaturedGame() {
 								key={item._id}
 								id={item._id}
 								title={item.name}
-								category={item.category.name}
+								category={item.category ? item.category.name : ""}
 								thumbnail={`${IMAGE_API}/${item.thumbnail}`}
 							/>
 						</>
