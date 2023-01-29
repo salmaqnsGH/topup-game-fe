@@ -1,8 +1,31 @@
-import React from "react";
+import { HistoryTransactionTypes, TopupCategoryTypes } from "@/services/data-types";
+import { getMemberOverview } from "@/services/player";
+import React, { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Category from "./Category";
 import TableRow from "./TableRow";
 
+const IMAGE_API = process.env.NEXT_PUBLIC_IMAGE;
+
 export default function OverviewContent() {
+	const [count, setCount] = useState([]);
+	const [data, setData] = useState([]);
+
+	const getMemberOverviewAPI = useCallback(async () => {
+		const response = await getMemberOverview();
+		if (response.error) {
+			toast.error(response.message);
+		} else {
+			setCount(response.data.count);
+			setData(response.data.data);
+		}
+	}, []);
+
+	useEffect(() => {
+		getMemberOverviewAPI();
+	}, []);
+
+	console.log("overview", count);
 	return (
 		<main className="main-wrapper">
 			<div className="ps-lg-0">
@@ -11,18 +34,11 @@ export default function OverviewContent() {
 					<p className="text-lg fw-medium color-palette-1 mb-14">Top Up Categories</p>
 					<div className="main-content">
 						<div className="row">
-							<Category icon="ic-desktop" nominal={18000500}>
-								<p className="color-palette-1 mb-0 ms-12">
-									Game
-									<br /> Desktop
-								</p>
-							</Category>
-							<Category icon="ic-mobile" nominal={18000500}>
-								<p className="color-palette-1 mb-0 ms-12">
-									Game
-									<br /> Mobile
-								</p>
-							</Category>
+							{count.map((item: TopupCategoryTypes) => (
+								<Category key={item._id} icon="ic-desktop" nominal={item.value}>
+									<p className="color-palette-1 mb-0 ms-12">{item.name}</p>
+								</Category>
+							))}
 						</div>
 					</div>
 				</div>
@@ -41,38 +57,17 @@ export default function OverviewContent() {
 								</tr>
 							</thead>
 							<tbody>
-								<TableRow
-									img="overview-1"
-									title="Mobile Legends: The New Battle 2021"
-									category="Desktop"
-									item="200 Gold"
-									price={111}
-									status="Pending"
-								/>
-								<TableRow
-									img="overview-2"
-									title="Mobile Legends: The New Battle 2021"
-									category="Desktop"
-									item="200 Gold"
-									price={111}
-									status="Pending"
-								/>
-								<TableRow
-									img="overview-3"
-									title="Mobile Legends: The New Battle 2021"
-									category="Desktop"
-									item="200 Gold"
-									price={111}
-									status="Failed"
-								/>
-								<TableRow
-									img="overview-4"
-									title="Mobile Legends: The New Battle 2021"
-									category="Desktop"
-									item="200 Gold"
-									price={111}
-									status="Success"
-								/>
+								{data.map((item: HistoryTransactionTypes) => (
+									<TableRow
+										key={item._id}
+										img={`${IMAGE_API}/${item.historyVoucherTopup.thumbnail}`}
+										title={item.historyVoucherTopup.gameName}
+										category={item.historyVoucherTopup.category}
+										item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
+										price={item.value}
+										status={item.status}
+									/>
+								))}
 							</tbody>
 						</table>
 					</div>

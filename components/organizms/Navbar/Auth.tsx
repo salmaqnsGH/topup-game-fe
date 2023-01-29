@@ -58,11 +58,11 @@ export default function Auth() {
 				<div>
 					<Link
 						className="dropdown-toggle ms-lg-40"
-						href="#"
 						role="button"
 						id="dropdownMenuLink"
 						data-bs-toggle="dropdown"
-						aria-expanded="false">
+						aria-expanded="false"
+						href={""}>
 						{/* <img src={`${IMAGE_API}/${user.avatar}`} className="rounded-circle" width="40" height="40" alt="" /> */}
 						<img src={profilePhoto} className="rounded-circle" width="40" height="40" alt="" />
 					</Link>
