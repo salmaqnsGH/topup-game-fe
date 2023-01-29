@@ -37,6 +37,8 @@ export default function Auth() {
 		router.push("/");
 	};
 
+	const profilePhoto = user.avatar ? `${IMAGE_API}/${user.avatar}` : "/img/avatar-1.png";
+
 	if (!isLogin) {
 		return (
 			<li className="nav-item my-auto">
@@ -61,7 +63,8 @@ export default function Auth() {
 						id="dropdownMenuLink"
 						data-bs-toggle="dropdown"
 						aria-expanded="false">
-						<img src={`${IMAGE_API}/${user.avatar}`} className="rounded-circle" width="40" height="40" alt="" />
+						{/* <img src={`${IMAGE_API}/${user.avatar}`} className="rounded-circle" width="40" height="40" alt="" /> */}
+						<img src={profilePhoto} className="rounded-circle" width="40" height="40" alt="" />
 					</Link>
 
 					<ul className="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
