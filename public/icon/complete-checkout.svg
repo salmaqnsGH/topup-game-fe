@@ -9,7 +9,7 @@
 								<path
 									d="M263.96 271.587C264.986 271.07 265.5 270.554 266.525 270.037"
 									stroke="#FF78B7"
-									stroke-width="0.6123"
+									strokeWidth="0.6123"
 									strokeLinecap="round"
 									stroke-linejoin="round"
 								/>
@@ -23,14 +23,14 @@
 								<path
 									d="M163.407 187.897C164.433 187.897 165.46 187.897 166.486 187.897"
 									stroke="#FF78B7"
-									stroke-width="0.6123"
+									strokeWidth="0.6123"
 									strokeLinecap="round"
 									stroke-linejoin="round"
 								/>
 								<path
 									d="M30.5337 294.317H334.245"
 									stroke="#B1B9CC"
-									stroke-width="2"
+									strokeWidth="2"
 									stroke-miterlimit="10"
 									strokeLinecap="round"
 									stroke-linejoin="round"
@@ -38,7 +38,7 @@
 								<path
 									d="M2.8302 294.317H15.1428"
 									stroke="#B1B9CC"
-									stroke-width="2"
+									strokeWidth="2"
 									stroke-miterlimit="10"
 									strokeLinecap="round"
 									stroke-linejoin="round"
@@ -74,7 +74,7 @@
 								<path
 									d="M239.847 95.4248V119.189C239.847 143.469 220.352 162.583 196.753 162.583C172.641 162.583 153.659 142.952 153.659 119.189V95.4248"
 									stroke="white"
-									stroke-width="1.8941"
+									strokeWidth="1.8941"
 									stroke-miterlimit="10"
 									strokeLinecap="round"
 									stroke-linejoin="round"

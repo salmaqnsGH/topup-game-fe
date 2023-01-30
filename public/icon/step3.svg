@@ -14,21 +14,21 @@
 									<path
 										d="M50 46L50 68"
 										stroke="white"
-										stroke-width="4"
+										strokeWidth="4"
 										strokeLinecap="round"
 										stroke-linejoin="round"
 									/>
 									<path
 										d="M40 54L40 68"
 										stroke="#B7B0F4"
-										stroke-width="4"
+										strokeWidth="4"
 										strokeLinecap="round"
 										stroke-linejoin="round"
 									/>
 									<path
 										d="M30 60L30 68"
 										stroke="#B7B0F4"
-										stroke-width="4"
+										strokeWidth="4"
 										strokeLinecap="round"
 										stroke-linejoin="round"
 									/>
