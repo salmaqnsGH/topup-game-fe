@@ -1,5 +1,5 @@
 import { HistoryTransactionTypes, TopupCategoryTypes } from "@/services/data-types";
-import { getMemberOverview } from "@/services/player";
+import { getMemberOverview } from "@/services/member";
 import React, { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Category from "./Category";
@@ -25,7 +25,6 @@ export default function OverviewContent() {
 		getMemberOverviewAPI();
 	}, []);
 
-	console.log("overview", count);
 	return (
 		<main className="main-wrapper">
 			<div className="ps-lg-0">
