@@ -33,13 +33,7 @@ export async function getServerSideProps({ req }: GetServerSideProps) {
 		};
 	}
 
-	const jwtToken = Buffer.from(token, "base64").toString("ascii");
-	const payload: JWTPayloadTypes = jwt_decode(jwtToken);
-	const user: UserTypes = payload.player;
-
 	return {
-		props: {
-			user: user,
-		},
+		props: {},
 	};
 }
