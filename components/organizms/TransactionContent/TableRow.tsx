@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import cx from "classnames";
 import Link from "next/link";
 import { NumericFormat } from "react-number-format";
@@ -11,9 +10,10 @@ interface TableRowProps {
 	price: number;
 	status: string;
 	img: string;
+	id: string;
 }
 export default function TableRow(props: TableRowProps) {
-	const { img, title, item, category, price, status } = props;
+	const { id, img, title, item, category, price, status } = props;
 	const statusClass = cx({
 		"float-start icon-status": true,
 		pending: status === "pending",
@@ -46,7 +46,7 @@ export default function TableRow(props: TableRowProps) {
 				</div>
 			</td>
 			<td>
-				<Link href="/member/transactions/detail" className="btn btn-status rounded-pill text-sm">
+				<Link href={`/member/transactions/${id}`} className="btn btn-status rounded-pill text-sm">
 					Details
 				</Link>
 				<a></a>
