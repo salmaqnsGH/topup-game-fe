@@ -1,3 +1,4 @@
+import { HistoryTransactionTypes } from "@/services/data-types";
 import { getMemberTransactions } from "@/services/member";
 import React, { useCallback, useEffect, useState } from "react";
 import { NumericFormat } from "react-number-format";
@@ -67,7 +68,7 @@ export default function TransactionContent() {
 								</tr>
 							</thead>
 							<tbody id="list_status_item">
-								{transactions.map((transaction) => (
+								{transactions.map((transaction: HistoryTransactionTypes) => (
 									<TableRow
 										img={`${IMAGE_API}/${transaction.historyVoucherTopup.thumbnail}`}
 										title={transaction.historyVoucherTopup.gameName}
@@ -75,6 +76,7 @@ export default function TransactionContent() {
 										item={`${transaction.historyVoucherTopup.coinQuantity} ${transaction.historyVoucherTopup.coinName}`}
 										price={transaction.value}
 										status={transaction.status}
+										id={transaction._id}
 									/>
 								))}
 							</tbody>
