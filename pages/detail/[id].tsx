@@ -4,15 +4,19 @@ import TopUpForm from "@/components/organizms/TopUpForm";
 import TopUpItem from "@/components/organizms/TopUpItem";
 import { GameItemTypes, NominalTypes, PaymentTypes } from "@/services/data-types";
 import { getDetailVoucher, getFeaturedGame } from "@/services/player";
-import React from "react";
+import React, { useEffect } from "react";
 
 interface DetailProps {
 	dataItem: GameItemTypes;
-	nominals: NominalTypes;
-	payments: PaymentTypes;
+	nominals: NominalTypes[];
+	payments: PaymentTypes[];
 }
 
 export default function Detail({ dataItem, nominals, payments }: DetailProps) {
+	useEffect(() => {
+		localStorage.setItem("data-item", JSON.stringify(dataItem));
+	});
+
 	return (
 		<>
 			<Navbar />
