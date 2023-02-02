@@ -49,14 +49,14 @@
 													stroke="white"
 													strokeWidth="2.5"
 													strokeLinecap="round"
-													stroke-linejoin="round"
+													strokeLinejoin="round"
 												/>
 												<path
 													d="M24 27L17 27"
 													stroke="#B7B0F4"
 													strokeWidth="2.5"
 													strokeLinecap="round"
-													stroke-linejoin="round"
+													strokeLinejoin="round"
 												/>
 											</g>
 										</svg>

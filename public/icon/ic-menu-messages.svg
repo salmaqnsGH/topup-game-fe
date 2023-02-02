@@ -10,6 +10,6 @@
 								stroke="#7E8CAC"
 								strokeWidth="2"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 						</svg>

@@ -17,21 +17,21 @@ export default function Footer() {
 								stroke="white"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M25 33.75L25 42.5"
 								stroke="#B7B0F4"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M18.75 37.5L18.75 42.5"
 								stroke="#B7B0F4"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<circle cx="25" cy="16.25" r="8.75" fill="#2B2467" />
 							<path

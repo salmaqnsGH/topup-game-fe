@@ -37,7 +37,7 @@ export default function NominalItem(props: NominalItemProps) {
 							stroke="#00BAFF"
 							strokeWidth="2"
 							strokeLinecap="round"
-							stroke-linejoin="round"
+							strokeLinejoin="round"
 						/>
 					</svg>
 				</div>

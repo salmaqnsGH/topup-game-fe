@@ -10,13 +10,13 @@
 								stroke="#7E8CAC"
 								strokeWidth="2"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M12.9033 2.41406V12.4141"
 								stroke="#7E8CAC"
 								strokeWidth="2"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 						</svg>

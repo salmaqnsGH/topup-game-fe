@@ -30,21 +30,21 @@
 								stroke="white"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M19.5 18.3125L15.5 18.3125"
 								stroke="white"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M26.4375 29.5L15.5 29.5"
 								stroke="#B7B0F4"
 								strokeWidth="2.5"
 								strokeLinecap="round"
-								stroke-linejoin="round"
+								strokeLinejoin="round"
 							/>
 						</g>
 					</svg>

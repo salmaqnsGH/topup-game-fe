@@ -32,7 +32,7 @@ export default function PaymentItem(props: PaymentItemProps) {
 							stroke="#00BAFF"
 							strokeWidth="2"
 							strokeLinecap="round"
-							stroke-linejoin="round"
+							strokeLinejoin="round"
 						/>
 					</svg>
 				</div>
