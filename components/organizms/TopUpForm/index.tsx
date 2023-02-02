@@ -72,6 +72,7 @@ export default function TopUpForm(props: TopUpFormProps) {
 					{nominals.map((nominal) => {
 						return (
 							<NominalItem
+								key={nominal._id}
 								_id={nominal._id}
 								coinQuantity={nominal.coinQuantity}
 								coinName={nominal.coinName}
@@ -92,6 +93,7 @@ export default function TopUpForm(props: TopUpFormProps) {
 							return payment.banks.map((bank) => {
 								return (
 									<PaymentItem
+										key={bank._id}
 										bankID={bank._id}
 										type={payment.type}
 										bankName={bank.bankName}
